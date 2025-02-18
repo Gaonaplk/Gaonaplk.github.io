@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteligencia Artificial - Explorando el Futuro Inteligente</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <style>
+        /* ==================================================================
+           ESTILOS GENERALES (RESET Y BODY)
+           Reseteamos los estilos por defecto del navegador y definimos estilos básicos para el body
+           ================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif; /* Fuente Roboto de Google Fonts para mejor legibilidad */
+            background-color: #F8FAFA; /* Fondo beige muy claro, suave y neutro */
+            color: #333; /* Color de texto principal, gris oscuro para buen contraste */
+            line-height: 1.6; /* Espaciado entre líneas para mejorar la lectura */
+        }
+
+        /* ==================================================================
+           ESTILOS DEL HEADER (ENCABEZADO PRINCIPAL)
+           Estilos para el encabezado de la página, donde usualmente va el título principal
+           ================================================================== */
+        header {
+            background-color: #4A6572; /* Color gris azulado más oscuro y sobrio para el header */
+            color: white; /* Texto en color blanco para contraste con el fondo oscuro */
+            padding: 50px 20px; /* Padding superior e inferior más amplio para mayor espacio vertical */
+            text-align: center; /* Centra el texto dentro del header */
+            font-size: 38px; /* Tamaño de fuente ligeramente mayor para el título */
+            font-weight: 700; /* Texto en negrita para destacar el título */
+            letter-spacing: 2px; /* Espaciado entre letras para un estilo más elegante */
+            text-transform: uppercase; /* Convierte el texto a mayúsculas */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Sombra suave para dar relieve al header */
+        }
+
+        /* ==================================================================
+           ESTILOS DE LA NAVEGACIÓN (NAV)
+           Estilos para la barra de navegación principal, usualmente con los enlaces a las secciones
+           ================================================================== */
+        nav {
+            background-color: #778DA9; /* Color gris pizarra, un azul muy apagado para la navegación */
+            position: fixed; /* Fija la navegación en la parte superior, permanece visible al hacer scroll */
+            top: 0; /*  Se pega a la parte superior de la ventana */
+            left: 0; /* Se pega al lado izquierdo de la ventana */
+            width: 100%; /* Ocupa todo el ancho de la ventana */
+            z-index: 100; /* Asegura que la navegación esté siempre por encima de otros elementos */
+            padding: 15px 0; /* Padding vertical para dar espacio a los enlaces */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para separar visualmente la navegación del contenido */
+        }
+
+        nav ul {
+            list-style: none; /* Elimina los puntos de lista por defecto */
+            text-align: center; /* Centra los elementos de la lista dentro de la navegación */
+        }
+
+        nav ul li {
+            display: inline; /* Muestra los elementos de la lista en línea horizontalmente */
+            margin: 0 25px; /* Margen horizontal entre los elementos de la lista */
+        }
+
+        nav ul li a {
+            color: white; /* Color de texto blanco para los enlaces de navegación */
+            text-decoration: none; /* Elimina el subrayado por defecto de los enlaces */
+            font-size: 19px; /* Tamaño de fuente ligeramente mayor para los enlaces */
+            font-weight: 500; /* Texto en semibold para los enlaces */
+            padding: 12px 25px; /* Padding alrededor del texto de los enlaces para hacerlos más ক্লিকables */
+            transition: background 0.3s, color 0.3s; /* Transición suave para efectos hover */
+            border-radius: 6px; /* Bordes ligeramente redondeados para los enlaces */
+        }
+
+        nav ul li a:hover {
+            background-color: #E0E1DD; /* Color gris azulado muy claro para el hover, menos vibrante */
+            color: #4A6572; /* Color gris azulado oscuro para el texto en hover, manteniendo contraste */
+        }
+
+        /* ==================================================================
+           ESTILOS DE LAS SECCIONES (SECTION)
+           Estilos para las secciones principales de contenido de la página
+           ================================================================== */
+        section {
+            padding: 90px 20px; /* Padding vertical amplio para separar el contenido del borde de la ventana */
+            margin-top: 90px; /* Margen superior para separar las secciones de la navegación fija */
+            border-top: 1px solid #eee; /* Línea superior sutil para separar visualmente las secciones */
+            background-color: #fefefe; /* Fondo blanco roto muy ligero para las secciones */
+        }
+
+        section h2 {
+            font-size: 34px; /* Tamaño de fuente grande para los títulos de sección */
+            color: #778DA9; /* Color gris pizarra para los títulos de sección, tono apagado */
+            font-weight: 700; /* Títulos en negrita para destacar */
+            margin-bottom: 25px; /* Margen inferior para separar el título del contenido */
+            text-transform: uppercase; /* Convierte los títulos a mayúsculas */
+            letter-spacing: 1px; /* Espaciado entre letras para un estilo más definido */
+        }
+
+        section p {
+            font-size: 18px; /* Tamaño de fuente estándar para el texto de párrafo */
+            color: #666; /* Color de texto gris medio para los párrafos, buena legibilidad */
+            margin-bottom: 25px; /* Margen inferior entre párrafos para espaciado vertical */
+            line-height: 1.8; /* Espaciado entre líneas para mejorar la legibilidad en párrafos largos */
+        }
+
+        /* ==================================================================
+           ESTILOS DEL CONTENEDOR DE CONTENIDO PRINCIPAL (.content-container)
+           Contenedor para agrupar cajas de contenido dentro de las secciones
+           ================================================================== */
+        .content-container {
+            display: flex; /*  Habilita Flexbox para el diseño responsivo de las cajas */
+            flex-wrap: wrap; /* Permite que las cajas pasen a la siguiente línea si no caben horizontalmente */
+            gap: 35px; /* Espacio entre las cajas de contenido */
+            justify-content: space-around; /* Distribuye las cajas horizontalmente con espacio alrededor */
+            margin-top: 40px; /* Margen superior para separar el contenedor del título de la sección */
+        }
+
+        /* ==================================================================
+           ESTILOS DE LAS CAJAS DE CONTENIDO (.content-box)
+           Estilos para las cajas individuales de contenido dentro de las secciones
+           ================================================================== */
+        .content-box {
+            background-color: #fff; /* Fondo blanco para las cajas de contenido */
+            padding: 30px; /* Padding interno para dar espacio alrededor del contenido dentro de la caja */
+            width: 32%; /* Ancho de las cajas, ajustado para que quepan 3 por línea en pantallas grandes */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra para dar sensación de elevación a las cajas */
+            border-radius: 10px; /* Bordes redondeados para las cajas */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para efectos hover */
+            border: 1px solid #ddd; /* Borde sutil para definir visualmente las cajas */
+        }
+
+        .content-box:hover {
+            transform: translateY(-8px); /* Eleva ligeramente la caja al pasar el ratón por encima */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra más intensa en hover para destacar la caja */
+        }
+
+        .content-box h3 {
+            font-size: 22px; /* Tamaño de fuente para los títulos dentro de las cajas */
+            color: #333; /* Color de texto para los títulos de caja */
+            font-weight: 600; /* Títulos de caja en semibold */
+            margin-bottom: 15px; /* Margen inferior para separar el título del resto del contenido de la caja */
+        }
+
+
+        .content-box img {
+            width: 100%; /* Asegura que la imagen ocupe todo el ancho de la caja */
+            height: auto; /* Altura automática para mantener la proporción de la imagen */
+            margin-top: 20px; /* Margen superior para separar la imagen del texto superior */
+            border-radius: 8px; /* Bordes redondeados para las imágenes dentro de las cajas */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra muy ligera para las imágenes */
+        }
+
+        /* ==================================================================
+           ESTILOS DE IFRAMES
+           Estilos específicos para los iframes (videos incrustados, etc.)
+           ================================================================== */
+        iframe {
+            width: 100%; /*  Asegura que el iframe ocupe todo el ancho de su contenedor */
+            height: 350px; /* Altura fija para los iframes, puedes ajustarla */
+            margin-top: 25px; /* Margen superior para separar el iframe del contenido superior */
+            border: none; /* Elimina el borde por defecto de los iframes */
+            border-radius: 10px; /* Bordes redondeados para los iframes */
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para los iframes */
+        }
+
+        /* ==================================================================
+           ESTILOS DEL FOOTER (PIE DE PÁGINA)
+           Estilos para el pie de página, usualmente con información de copyright, etc.
+           ================================================================== */
+        footer {
+            background-color: #4A6572; /* Color gris azulado oscuro para el footer, igual que el header */
+            color: white; /* Texto blanco para el footer */
+            text-align: center; /* Centra el texto dentro del footer */
+            padding: 25px; /* Padding vertical para dar espacio al texto del footer */
+            font-size: 15px; /* Tamaño de fuente ligeramente mayor para el texto del footer */
+            position: relative; /* Posición relativa para asegurar que se quede al final de la página */
+            bottom: 0; /* Se pega a la parte inferior de su contenedor */
+            width: 100%; /* Ocupa todo el ancho de su contenedor */
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Sombra superior para separar visualmente el footer del contenido principal */
+        }
+
+        /* ==================================================================
+           ESTILOS DE TABLAS
+           Estilos para las tablas de datos dentro de la página
+           ================================================================== */
+        table {
+            width: 100%; /* La tabla ocupa todo el ancho de su contenedor */
+            margin-top: 25px; /* Margen superior para separar la tabla del contenido superior */
+            border-collapse: collapse; /*  Combina los bordes de las celdas en uno solo */
+            border-radius: 10px; /* Bordes redondeados para la tabla */
+            overflow: hidden; /*  Asegura que el border-radius se aplique correctamente con el box-shadow */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para la tabla */
+        }
+
+        table th,
+        table td {
+            padding: 15px; /* Padding interno para dar espacio al texto dentro de las celdas */
+            text-align: center; /* Centra el texto dentro de las celdas */
+            border: 1px solid #ddd; /* Borde gris claro para las celdas */
+            font-size: 17px; /* Tamaño de fuente ligeramente mayor para el texto de la tabla */
+        }
+
+        table th {
+            background-color: #778DA9; /* Color gris pizarra para los encabezados de tabla, tono apagado */
+            color: white; /* Texto blanco para los encabezados de tabla */
+            font-weight: 600; /* Encabezados de tabla en semibold */
+            text-transform: uppercase; /* Convierte los encabezados a mayúsculas */
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f4f4f4; /*  Fondo gris muy claro para las filas pares de la tabla, mejorando la legibilidad */
+        }
+
+        /* ==================================================================
+           ESTILOS DE CONTENEDORES SECUNDARIOS (.conte2)
+           Estilos para contenedores de contenido secundario, para destacar secciones dentro de la página
+           ================================================================== */
+        .conte2 {
+            background-color: #fefefe; /* Fondo blanco roto para los contenedores secundarios */
+            padding: 35px; /* Padding interno amplio para los contenedores secundarios */
+            margin: 30px 0; /* Margen vertical para separar los contenedores secundarios */
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18); /* Sombra más fuerte para destacar los contenedores secundarios */
+            border-radius: 12px; /* Bordes más redondeados para los contenedores secundarios */
+            border: 1px solid #ddd; /* Borde sutil para los contenedores secundarios */
+        }
+
+        .conte2 h2 {
+            font-size: 30px; /* Tamaño de fuente para los títulos dentro de los contenedores secundarios */
+            color: #778DA9; /* Color gris pizarra para los títulos secundarios, tono apagado */
+            margin-bottom: 25px; /* Margen inferior para separar el título del contenido del contenedor secundario */
+        }
+
+        .conte2 p {
+            font-size: 18px; /* Tamaño de fuente para el texto de párrafo dentro de los contenedores secundarios */
+        }
+
+        .conte2 img {
+            width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor secundario */
+            height: auto; /* Altura automática para mantener la proporción de la imagen */
+            margin-top: 20px; /* Margen superior para separar la imagen del texto superior */
+            border-radius: 10px; /* Bordes redondeados para las imágenes en contenedores secundarios */
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para las imágenes en contenedores secundarios */
+        }
+
+        /* Estilos para las imágenes dentro de .conte2 (contseccion, contseccion2, contseccion3) -  Sin cambios en esencia, heredan estilos de .conte2 > img */
+        .contseccion,
+        .contseccion2,
+        .contseccion3 {
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        /* ==================================================================
+           MEDIA QUERIES - ADAPTABILIDAD RESPONSIVA
+           Ajustes para diferentes tamaños de pantalla, asegurando que el diseño se vea bien en móviles, tablets y escritorios
+           ================================================================== */
+        @media screen and (max-width: 768px) { /* Media query para pantallas de tablet (máximo 768px de ancho) */
+            .content-box {
+                width: 49%; /* Las cajas de contenido se hacen más anchas en tablets, ocupando casi la mitad del ancho */
+            }
+
+            nav ul li {
+                margin: 0 15px; /* Reduce el margen horizontal en la navegación para que quepan más elementos en tablets */
+            }
+
+            section h2 {
+                font-size: 30px; /* Reduce el tamaño de los títulos de sección en tablets para que no sean demasiado grandes */
+            }
+        }
+
+        @media screen and (max-width: 480px) { /* Media query para pantallas de móvil (máximo 480px de ancho) */
+            .content-box {
+                width: 100%; /* Las cajas de contenido ocupan todo el ancho en móviles, apilándose verticalmente */
+            }
+
+            section h2 {
+                font-size: 26px; /* Reduce aún más el tamaño de los títulos de sección en móviles */
+            }
+
+            nav ul li {
+                margin: 0 8px; /* Reduce aún más el margen horizontal en la navegación para móviles */
+            }
+
+            nav ul li a {
+                font-size: 17px; /* Reduce el tamaño de fuente de los enlaces de navegación en móviles */
+                padding: 10px 15px; /* Reduce el padding de los enlaces de navegación en móviles */
+            }
+
+            header {
+                font-size: 32px; /* Reduce el tamaño del título del header en móviles */
+                padding: 40px 15px; /* Reduce el padding del header en móviles */
+            }
+
+            section {
+                padding: 70px 15px; /* Reduce el padding de las secciones en móviles */
+                margin-top: 70px; /* Ajusta el margen superior de las secciones en móviles */
+            }
+
+            .conte2 {
+                padding: 25px; /* Reduce el padding de los contenedores secundarios en móviles */
+            }
+
+            table th,
+            table td {
+                padding: 10px; /* Menos padding en celdas de tabla en móviles */
+                font-size: 15px; /* Reduce el tamaño de fuente del texto de la tabla en móviles */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Explorando la Inteligencia Artificial</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#introduccion-ia">Introducción a la IA</a></li>
+            <li><a href="#tipos-ia">Tipos de IA</a></li>
+            <li><a href="#aplicaciones">Áreas de Aplicación</a></li>
+            <li><a href="#usos-innovadores">Usos Innovadores</a></li>
+            <li><a href="#algoritmos">Algoritmos de Búsqueda</a></li>
+        </ul>
+    </nav>
+
+    <section id="introduccion-ia">
+        <h2>Introducción a la Inteligencia Artificial</h2>
+        <div class="conte2">
+            <h2>¿Qué es la Inteligencia Artificial?</h2>
+            <p>La Inteligencia Artificial (IA) es un campo de la informática que se centra en diseñar y programar sistemas capaces de realizar tareas que normalmente requieren inteligencia humana. Estas tareas incluyen el aprendizaje, la resolución de problemas, la percepción, la comprensión del lenguaje natural y la toma de decisiones. La IA busca crear máquinas que puedan pensar, aprender y actuar de manera inteligente.</p>
+            <p>Desde sus inicios en la década de 1950, la IA ha evolucionado significativamente. Inicialmente centrada en la lógica y el razonamiento simbólico, ha expandido sus horizontes para abarcar el aprendizaje automático, las redes neuronales y el aprendizaje profundo, impulsada por la disponibilidad de grandes cantidades de datos y el aumento de la potencia de cómputo.</p>
+            <img src="imagenes/ai1.jpg" alt="Concepto de Inteligencia Artificial" class="contseccion">
+        </div>
+    </section>
+
+    <section id="tipos-ia">
+        <h2>Tipos de Inteligencia Artificial</h2>
+        <div class="content-container">
+            <div class="content-box">
+                <h3>IA Débil (Estrecha)</h3>
+                <p>También conocida como IA estrecha, se especializa en realizar tareas específicas de manera excepcional. Ejemplos comunes incluyen asistentes virtuales como Siri o Alexa, sistemas de recomendación de productos, y software de reconocimiento facial.  Aunque son muy eficientes en sus dominios, carecen de conciencia o inteligencia general.</p>
+                <p><strong>Características clave:</strong></p>
+                <ul>
+                    <li>Especialización en una tarea definida.</li>
+                    <li>Simula inteligencia humana en áreas limitadas.</li>
+                    <li>Carece de autoconciencia.</li>
+                </ul>
+                <img src="imagenes/ia debil.jpeg" alt="">
+            </div>
+            <div class="content-box">
+                <h3>IA Fuerte (General)</h3>
+                <p>La IA fuerte, o IA general, representa un nivel de inteligencia artificial que teóricamente podría realizar cualquier tarea intelectual que un ser humano puede hacer.  Implica una comprensión profunda, aprendizaje, adaptación y aplicación del conocimiento a una variedad de problemas y contextos, de forma similar a la inteligencia humana general.</p>
+                <p><strong>Características clave:</strong></p>
+                <ul>
+                    <li>Inteligencia a nivel humano en diversas tareas.</li>
+                    <li>Capacidad de aprender, entender y aplicar conocimiento.</li>
+                    <li>Adaptabilidad a nuevos problemas y situaciones.</li>
+                </ul>
+                <img src="imagenes/ia fuerte.jpeg" alt="">
+            </div>
+            <div class="content-box">
+                <h3>IA Superinteligente</h3>
+                <p>La IA superinteligente es un concepto hipotético que describe una forma de inteligencia artificial que excede vastamente la inteligencia humana en todos los aspectos, incluyendo creatividad, resolución de problemas, y sabiduría general.  Representa el nivel más avanzado y aún puramente teórico de la inteligencia artificial.</p>
+                <p><strong>Características clave:</strong></p>
+                <ul>
+                    <li>Inteligencia que supera ampliamente la humana.</li>
+                    <li>Potencial para innovaciones y avances disruptivos.</li>
+                    <li>Consideraciones éticas y de control complejas.</li>
+                </ul>
+                <img src="imagenes/ia inteligente.jpeg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section id="aplicaciones">
+        <h2>Áreas de Aplicación</h2>
+        <div class="content-container">
+            <div class="content-box">
+                <h3>Aplicaciones Industriales</h3>
+                <p>En la industria, la IA optimiza procesos mediante el control de maquinaria compleja, la gestión eficiente de edificios inteligentes para reducir consumo energético, y la mejora en la distribución y transporte de electricidad, buscando una mayor eficiencia y sostenibilidad.</p>
+                <p><strong>Ejemplos:</strong></p>
+                <ul>
+                    <li>Robótica avanzada en líneas de producción.</li>
+                    <li>Sistemas de gestión de energía predictivos.</li>
+                    <li>Optimización de cadenas de suministro.</li>
+                </ul>
+                <img src="imagenes/aplicacion insutrial.jpeg" alt="">
+            </div>
+            <div class="content-box">
+                <h3>Aplicaciones Comerciales</h3>
+                <p>En el comercio, la IA transforma la gestión de grandes volúmenes de información, personaliza la experiencia en el comercio electrónico para aumentar ventas, y automatiza procesos de compra y atención al cliente, mejorando la eficiencia operativa y la satisfacción del consumidor.</p>
+                <p><strong>Ejemplos:</strong></p>
+                <ul>
+                    <li>Chatbots para atención al cliente 24/7.</li>
+                    <li>Sistemas de recomendación de productos personalizados.</li>
+                    <li>Análisis predictivo de tendencias de mercado.</li>
+                </ul>
+                <img src="imagenes/aplicacion comercial.jpeg" alt="">
+            </div>
+            <div class="content-box">
+                <h3>Aplicaciones Médicas</h3>
+                <p>En medicina, la IA revoluciona la monitorización de pacientes a través de dispositivos portátiles y análisis de datos en tiempo real, y asiste en la gestión de tratamientos médicos mediante el análisis de historiales clínicos y la identificación de patrones para diagnósticos más precisos y terapias personalizadas.</p>
+                <p><strong>Ejemplos:</strong></p>
+                <ul>
+                    <li>Diagnóstico asistido por IA en radiología.</li>
+                    <li>Plataformas de telemedicina y seguimiento remoto.</li>
+                    <li>Desarrollo de fármacos y medicina personalizada.</li>
+                </ul>
+                [<img src="imagenes/aplicaciones medicas.jpeg" alt="">
+            </div>
+            <div class="content-box">
+                <h3>Entretenimiento</h3>
+                <p>En el entretenimiento, la IA enriquece las experiencias de usuario creando juegos más desafiantes e inteligentes, desarrollando teatro interactivo donde la narrativa se adapta a las decisiones del espectador, y transformando la producción cinematográfica con efectos visuales generados por IA y narrativas no lineales.</p>
+                <p><strong>Ejemplos:</strong></p>
+                <ul>
+                    <li>NPCs (personajes no jugables) en videojuegos con comportamiento realista.</li>
+                    <li>Generación de música y arte digital.</li>
+                    <li>Personalización de contenido multimedia según preferencias del usuario.</li>
+                </ul>
+                <img src="imagenes/aplicaciones de entretenimiento.jpeg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section id="usos-innovadores">
+        <h2>Usos Innovadores</h2>
+        <div class="content-container">
+            <div class="content-box">
+                <h3>Representación Virtual (Agentes Suplentes)</h3>
+                <p>La IA permite crear agentes virtuales que actúan como suplentes o representantes en interacciones en lenguaje natural. Estos agentes pueden gestionar comunicaciones, realizar tareas administrativas y actuar como interfaces personalizadas para personas o entidades en entornos digitales.</p>
+                <p><strong>Innovación:</strong></p>
+                <ul>
+                    <li>Delegación de tareas de comunicación y gestión a agentes IA.</li>
+                    <li>Interfaces personalizadas para interacción digital más eficiente.</li>
+                    <li>Potencial para asistencia en tiempo real y automatización de procesos.</li>
+                </ul>
+                <img src="imagenes/representacion cirtual.jpeg" alt="">
+            </div>
+            <div class="content-box">
+                <h3>Asistentes Personales Inteligentes</h3>
+                <p>Los asistentes personales impulsados por IA ofrecen ayuda personalizada en una amplia gama de áreas, desde la gestión de agendas y tareas, hasta el aprendizaje y adaptación a las necesidades y preferencias individuales del usuario, transformando la forma en que interactuamos con la tecnología en el día a día.</p>
+                 <p><strong>Innovación:</strong></p>
+                <ul>
+                    <li>Ayuda contextual y adaptada a cada usuario.</li>
+                    <li>Integración de múltiples servicios y plataformas.</li>
+                    <li>Aprendizaje continuo de patrones de uso y preferencias.</li>
+                </ul>
+                <img src="imagenes/asistente personal.jpeg" alt="">
+            </div>
+            <div class="content-box">
+                <h3>Negociadores Autónomos</h3>
+                <p>La IA facilita la creación de negociadores autónomos capaces de realizar compras y ventas complejas en mercados electrónicos. Estos sistemas pueden analizar datos de mercado en tiempo real, evaluar estrategias de negociación y ejecutar transacciones optimizadas sin intervención humana, mejorando la eficiencia y los resultados en el comercio electrónico.</p>
+                 <p><strong>Innovación:</strong></p>
+                <ul>
+                    <li>Automatización de procesos de compra y venta complejos.</li>
+                    <li>Negociación basada en datos y análisis en tiempo real.</li>
+                    <li>Potencial para optimizar precios y condiciones de mercado.</li>
+                </ul>
+                <img src="imagenes/negociadoes virtuales.jpeg" alt="">
+            </div>
+            <div class="content-box">
+                <h3>Rastreadores de Información Inteligentes</h3>
+                <p>La IA permite desarrollar rastreadores de información avanzados que buscan datos específicos en redes extensas y notifican al usuario sobre cambios relevantes o información de interés.  Estos rastreadores pueden personalizarse para monitorear una variedad de fuentes y ofrecer inteligencia proactiva.</p>
+                 <p><strong>Innovación:</strong></p>
+                <ul>
+                    <li>Monitorización automatizada de grandes volúmenes de información.</li>
+                    <li>Alertas y notificaciones personalizadas basadas en criterios específicos.</li>
+                    <li>Capacidad para descubrir patrones y tendencias ocultas en datos.</li>
+                </ul>
+                <img src="imagenes/rastreadores.jpeg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section id="algoritmos">
+        <h2>Algoritmos de Búsqueda en IA</h2>
+
+        <div class="conte2">
+            <h2>¿Qué es un algoritmo de búsqueda en IA?</h2>
+            <p>Un algoritmo de búsqueda en inteligencia artificial es un método computacional que evalúa sistemáticamente un conjunto de datos indexados o un espacio de posibles soluciones para encontrar la mejor solución a un problema dado.  Estos algoritmos son fundamentales en diversas tareas de IA, desde juegos y planificación de rutas hasta procesamiento de lenguaje natural y sistemas de toma de decisiones.</p>
+            <p>Imagina que estás creando una aplicación de ajedrez utilizando inteligencia artificial que predice el mejor movimiento a realizar. Para determinar el movimiento óptimo, un algoritmo de búsqueda de IA debe explorar y evaluar las diferentes opciones posibles en el tablero.  Esto implica examinar sistemáticamente la posición de cada pieza, evaluar cada combinación potencial de movimientos, y calcular la táctica que maximice las posibilidades de ganar, todo dentro de limitaciones de tiempo y recursos computacionales.</p>
+            <img src="imagenes/claves2.webp" alt="Diagrama conceptual de un algoritmo de búsqueda" class="contseccion">
+            <iframe src="https://www.youtube.com/embed/pDiBOdPH5cA?si=paInr2Fz6F6BPdQ-" title="Video explicativo sobre algoritmos de búsqueda en IA" allowfullscreen></iframe>
+        </div>
+
+        <div class="conte2">
+            <h2>Importancia y aplicaciones de los algoritmos de búsqueda</h2>
+            <p>Los algoritmos de búsqueda en IA son herramientas fundamentales en una amplia gama de campos y aplicaciones.  En la exploración espacial, la NASA los utiliza para planificar rutas óptimas para rovers y sondas. En medicina, asisten en el diagnóstico médico mediante el análisis de síntomas y datos de pacientes para identificar posibles enfermedades. En la planificación logística, optimizan rutas de transporte y gestión de inventario para reducir costos y tiempos de entrega.</p>
+            <p>Además de estos campos, los algoritmos de búsqueda se aplican extensamente en finanzas para optimizar portafolios de inversión, en fabricación para secuenciar tareas y minimizar tiempos de producción, y en servicios legales para la recuperación eficiente de información relevante en grandes bases de datos de documentos.  Su capacidad para encontrar soluciones eficientes en espacios de búsqueda complejos los hace indispensables para mejorar la toma de decisiones y optimizar procesos en numerosas industrias.</p>
+            <img src="imagenes/claves.png" alt="Aplicaciones de los algoritmos de búsqueda en diversos campos" class="contseccion2">
+        </div>
+
+        <div class="conte2">
+            <h2>Elementos clave de los algoritmos de búsqueda</h2>
+            <p>Para comprender cómo funcionan los algoritmos de búsqueda, es esencial conocer sus elementos fundamentales:</p>
+            <ul>
+                <li><strong>Estado Inicial:</strong> Representa el punto de partida del problema, la situación desde la cual se inicia el proceso de búsqueda de una solución.</li>
+                <li><strong>Objetivo:</strong> Define el estado o condición deseada que el algoritmo debe alcanzar. Es la meta de la búsqueda, la solución al problema planteado.</li>
+                <li><strong>Operadores:</strong> Son las acciones o transiciones permitidas que el algoritmo puede aplicar para moverse de un estado a otro dentro del espacio de búsqueda.  Cada operador transforma el estado actual en un nuevo estado, acercándose potencialmente al objetivo.</li>
+                <li><strong>Costo:</strong> Asigna un valor numérico a cada transición o acción entre estados.  El costo puede representar diversos factores como tiempo, recursos, distancia, o cualquier otra métrica relevante para el problema. Los algoritmos de búsqueda a menudo buscan soluciones que minimicen o maximicen el costo total.</li>
+            </ul>
+            <img src="imagenes/elementos1.jpeg"Elementos fundamentales de un algoritmo de búsqueda: Estado Inicial, Objetivo, Operadores y Costo" class="contseccion3">
+        </div>
+
+        <div class="conte2">
+            <h2>Tipos de Algoritmos de Búsqueda</h2>
+            <p>Existen diversas categorías de algoritmos de búsqueda, cada uno con sus propias características y enfoques.  Aquí presentamos algunos de los más relevantes en el campo de la Inteligencia Artificial:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Algoritmo</th>
+                        <th>Descripción</th>
+                        <th>Aplicación Típica</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Búsqueda en Anchura (BFS)</td>
+                        <td><strong>Descripción:</strong> Explora el espacio de búsqueda expandiendo los nodos en todos los niveles de profundidad antes de avanzar al siguiente nivel.  Garantiza encontrar la solución más corta en términos de número de pasos si existe una solución.</td>
+                        <td><strong>Aplicación:</strong> Ideal para problemas donde se busca la ruta más corta o la solución con menos pasos, como en la IA de juegos para encontrar el camino más rápido, o en la búsqueda de rutas en mapas y redes.</td>
+                    </tr>
+                    <tr>
+                        <td>Búsqueda en Profundidad (DFS)</td>
+                        <td><strong>Descripción:</strong> Explora el espacio de búsqueda expandiendo un nodo en profundidad hasta alcanzar un límite o una solución, antes de retroceder y explorar otras ramas.  Puede encontrar soluciones más rápidamente que BFS en algunos casos, pero no garantiza encontrar la solución más corta.</td>
+                        <td><strong>Aplicación:</strong> Útil en problemas de exploración de árboles de decisiones, como en la planificación y el backtracking, y en la detección de ciclos en grafos.</td>
+                    </tr>
+                    <tr>
+                        <td>Algoritmo A* (A Estrella)</td>
+                        <td><strong>Descripción:</strong> Combina elementos de la búsqueda en anchura y la búsqueda heurística. Utiliza una función de evaluación que estima el costo total de la ruta a través de un nodo, priorizando la exploración de los nodos que parecen más prometedores para alcanzar el objetivo de manera óptima.</td>
+                        <td><strong>Aplicación:</strong> Ampliamente utilizado en problemas de optimización y búsqueda de rutas más eficientes en juegos, navegación en mapas (como en sistemas GPS), y planificación de movimientos robóticos.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Inteligencia Artificial - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+
+</html>
